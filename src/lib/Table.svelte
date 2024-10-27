@@ -1,3 +1,5 @@
+<svelte:options customElement="custom-table" />
+
 <script>
   import { TabulatorFull as Tabulator } from "tabulator-tables";
   import { onMount } from "svelte";
@@ -27,7 +29,10 @@
   });
 </script>
 
-<div bind:this={tableComponent}></div>
+// tabulator fails if we don't wrap with outer div
+<div>
+  <div bind:this={tableComponent}></div>
+</div>
 
 <svelte:head>
   <link
